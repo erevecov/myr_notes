@@ -1,7 +1,7 @@
 const Note = require('../models/Note')
 const moment = require('moment')
 
-module.exports = ({ 
+module.exports = async ({ 
   name,
   userOwner,
   users = [],
@@ -14,7 +14,7 @@ module.exports = ({
 }) => {
   try {
 
-    console.log('ANTES')
+    //console.log('ANTES')
 
     let newNote = new Note({
       name: name,
@@ -29,7 +29,7 @@ module.exports = ({
       board: board
     })
 
-    console.log('DESPUES', newNote)
+    //console.log('DESPUES', newNote)
     
     return newNote
   } catch (error) {

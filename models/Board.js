@@ -7,7 +7,7 @@ try {
 } catch (error) {
   const BoardSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    userOwner: { type: Schema.Types.ObjectId, ref: 'Users' },
+    userOwner: { type: Schema.Types.ObjectId, ref: 'Users', required: true },
     users: [{ type: Schema.Types.ObjectId, ref: 'Users' }],
     date: { type: String, required: true },
     private: { type: Boolean, required: true, default: true },
