@@ -12,7 +12,7 @@ const createNote = async (req, res) => {
     
     let newNote = noteCreator({
       name,
-      userOwner: credentials.iss,
+      userOwner: credentials.iss._id,
       users,
       text,
       private,

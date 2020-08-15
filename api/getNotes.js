@@ -1,11 +1,15 @@
 const connectToDatabase = require('../lib/database');
 const Note = require('../models/Note')
+const verifyToken = require('../lib/verifyToken')
 
 const getNote = async (req, res) => {
   try {
     await connectToDatabase();
+    let { _id } = req.headers.credentials.iss
 
-    let notes = await Note.find({});
+    let notes = await Note.find({
+      userOwner: _id
+    });
      
     return res.status(200).json({ notes })
   } catch (error) {
@@ -15,4 +19,4 @@ const getNote = async (req, res) => {
   }
 }
 
-module.exports = getNote
+module.exports = verifyToken(getNote)
