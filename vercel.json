@@ -1,0 +1,30 @@
+{
+  "routes": [
+    {
+      "src": "/",
+      "methods": ["GET"],
+      "dest": "/api/getNotes.js"
+    },
+    {
+      "src": "/notes",
+      "methods": ["GET"],
+      "dest": "/api/getNotes.js"
+    },
+    {
+      "src": "/notes",
+      "methods": ["POST"],
+      "dest": "/api/createNote.js"
+    },
+    {
+      "src": "/users",
+      "methods": ["POST"],
+      "dest": "/api/createUser.js"
+    },
+    {
+      "src": "/login",
+      "methods": ["POST"],
+      "dest": "/api/loginJwt.js"
+    },
+    { "src": "/.*", "status": 404, "dest": "/utils/404.json" }
+  ]
+}
