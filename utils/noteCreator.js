@@ -14,18 +14,22 @@ module.exports = ({
 }) => {
   try {
 
+    console.log('ANTES')
+
     let newNote = new Note({
       name: name,
-      userOwner,
-      users,
-      text,
+      userOwner: userOwner,
+      users: users,
+      text: text,
       date: moment().format('YYYY-MM-DDTHH:mm:ss.SSSSS'),
-      private,
-      archived,
-      color,
-      icon,
-      board
+      private: private,
+      archived: archived,
+      color: color,
+      icon: icon,
+      board: board
     })
+
+    console.log('DESPUES', newNote)
     
     return newNote
   } catch (error) {

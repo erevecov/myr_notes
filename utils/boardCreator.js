@@ -20,11 +20,11 @@ module.exports = async ({ name, userOwner, users = [], private = true }) => {
     }
 
     let newBoard = new Board({
-      name,
-      userOwner,
-      users,
+      name: name,
+      userOwner: userOwner,
+      users: users,
       date: moment().format('YYYY-MM-DDTHH:mm:ss.SSSSS'),
-      private,
+      private: private,
       archived: false,
       slug: slugify(name, { replacement: '-', lower: true, })
     })

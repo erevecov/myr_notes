@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 const slugify = require('slugify')
 const short = require('short-uuid')
 const boardCreator = require('../utils/boardCreator')
+const noteCreator = require('../utils/noteCreator')
 
 const createUser = async (req, res) => {
   try {
@@ -20,9 +21,9 @@ const createUser = async (req, res) => {
 
     const hashed_password = await bcrypt.hash(password, 12);
 
-    let newUser = new Note({
-      name,
-      email,
+    let newUser = new User({
+      name: name,
+      email: email,
       password: hashed_password,
       slug: `${short.generate()}-${slugify(name, { replacement: '-', lower: true, })}`
     })
